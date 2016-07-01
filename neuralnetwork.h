@@ -8,12 +8,13 @@ class NeuralNetwork{
      void initWeights();
      double summedInput(int inputNo);
      int appliedThreshold();
-     void weightupdate();
+     void weightupdate(int weightNo, int desiredOutput, int resultWeFind);
      private:
    
      std::vector<double> weights;
      int **inputs;
      const double threshold = 0.50;
+     double learningRate = 0.15;
      int *labels;
 };
 #endif

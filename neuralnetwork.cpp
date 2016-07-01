@@ -88,8 +88,31 @@ int NeuralNetwork::appliedThreshold(){
    if (loopResult<threshold && labels[i] != 0){
             int resultFind = 0;
             int labelResult = labels[i];
+            weightupdate(i , labelResult, resultWeFind);
 
 
            }
+
+   else if(loopresult>threshold && labels[i] != 1){
+     int resultFind = 1;
+     int labelResult = labels[i];
+     weightupdate(i, labelResult, resultWeFind);
+  
+   
+     else if(loopresult>threshold && labels[i] != 1){
+     int resultFind = 1;
+     int labelResult = labels[i];
+     weightupda(i, labelResult, resultWeFind);}
+double MultiplyVectorWithScalar(int *vector, int scalar){
+  double result = 0.0;
+  for (int i=0; i<sizeof(vector)/sizeof(*vector); i++){
+    result = result+(vector[i]*scalar);
   }
+  return result;
+}
+
+void NeuralNetwork:weightUpdate(int i,int desiredOutput, int resultWeFind){
+
+  
+  weigths[i] = weights[i]+multiplyVectorWithScalar(inputs[i],learningRate*(desiredOutput - resultWeFind));
   }
