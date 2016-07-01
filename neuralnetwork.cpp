@@ -3,6 +3,7 @@
 #include "neuralnetwork.h"
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 using namespace std;
 
 void NeuralNetwork::initWeights(){
@@ -27,7 +28,19 @@ std::cout << "weight" << i << ":" << r << "\n";
 }
 NeuralNetwork::NeuralNetwork(){
 } 
-NeuralNetwork::NeuralNetwork(int **features, int *labels){
+NeuralNetwork::NeuralNetwork(int **features, int *labels_parameters){
+
+labels = new int[2];
+memcpy(labels,labels_parameters,sizeof(labels));
+
+for (int i=0; i<2; i++){
+  std::cout << labels[i] <<  "\n\n";
+}
+
+
+
+
+  
 int length = (sizeof(features)/sizeof(*features))+1;
 std::cout << length << "\n";
 inputs = new int*[length];
@@ -64,5 +77,19 @@ resultSum = resultSum+mult;
 
 return resultSum;
 }
-  
  
+
+int NeuralNetwork::appliedThreshold(){
+  int lengthofInput = sizeof(inputs)/sizeof(*inputs)+1;
+  int lengthofWeight = sizeof(inputs)/sizeof(*inputs[0]);
+
+  for(int i=0; i<lengthofInput;i++){
+   double loopResult = summedInput(i);
+   if (loopResult<threshold && labels[i] != 0){
+            int resultFind = 0;
+            int labelResult = labels[i];
+
+
+           }
+  }
+  }

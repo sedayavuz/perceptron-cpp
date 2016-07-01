@@ -21,6 +21,6 @@ int main(){
 
   NeuralNetwork test (inputs_array, labels);
  test.initWeights();
-test.summedInput(0);
 
+test.appliedThreshold();
 }
